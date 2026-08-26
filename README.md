@@ -38,5 +38,3 @@ proiect_web/
 ├── dataset_test/      # Imagini folosite pentru testare pe grupe de vârstă
 ├── rezultate_dataset.json  # Rezultatele salvate în format structurat
 └── web_app.py         # Scriptul principal Python / Serverul Flask
-
----
