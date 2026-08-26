@@ -2,7 +2,7 @@
 
 Un prototip hardware-software de tip nod IoT independent (Edge Computing) dezvoltat pe **Raspberry Pi 4**, conceput pentru captarea, identificarea și clasificarea stărilor emoționale în timp real.
 
-> **Lucrare de Licență** – Universitatea Transilvania din Brașov (Facultatea de Inginerie Electrică și Știința Calculatoarelor - IESC)
+> **Lucrare de Licență** – Universitatea Transilvania din Brașov (Facultatea de Inginerie Electrică și Știința Calculatoarelor - IESC), Tehnologii și Sisteme de Telecomunicații
 
 ---
 
