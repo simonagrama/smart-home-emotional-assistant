@@ -47,7 +47,7 @@ proiect_web/
 1. **Clonarea repozitoriului:**
    ```bash
 
-   git clone https://github.com/simonagrama/smart-home-emotional-assistant.git
+   git clone [https://github.com/simonagrama/smart-home-emotional-assistant.git](https://github.com/simonagrama/smart-home-emotional-assistant.git)
 
    cd smart-home-emotional-assistant
 
