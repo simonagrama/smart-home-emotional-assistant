@@ -1,0 +1,9 @@
+# Cache Python
+__pycache__/
+*.pyc
+
+# Capturi foto generate în timpul testelor
+capturi/*.jpg
+
+# Dataset de test (dacă este prea mare pentru GitHub)
+dataset_test/
