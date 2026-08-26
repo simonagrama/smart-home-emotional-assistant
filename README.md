@@ -1,2 +1,40 @@
-# smart-home-emotional-assistant
-IoT Edge Computing node &amp; Flask Web Application for real-time facial emotion detection on Raspberry Pi 4.
+# Smart Home Emotional Assistant 🧠🏠
+
+Un prototip hardware-software de tip nod IoT independent (Edge Computing) dezvoltat pe **Raspberry Pi 4**, conceput pentru captarea, identificarea și clasificarea stărilor emoționale în timp real.
+
+> **Lucrare de Licență** – Universitatea Transilvania din Brașov (Facultatea de Inginerie Electrică și Știința Calculatoarelor - IESC)
+
+---
+
+## 📌 Descriere & Arhitectură Sistem
+
+Sistemul utilizează analiza video non-invazivă a feței pe baza celor 7 emoții universale (Modelul Paul Ekman) și a macro-expresiilor (MaE). Întreaga procesare a cadrelor video are loc **local** (la marginea rețelei – Edge Computing) pe procesorul ARM al plăcii Raspberry Pi 4, protejând confidențialitatea datelor (conform normelor GDPR).
+
+### Componente Principale:
+* **Hardware Unit:** Raspberry Pi 4 Model B (8 GB RAM), Cameră Web Logitech C600, Adaptor USB 3.0-RJ45 (TP-LINK UE300).
+* **AI & Processing Engine:** Python, OpenCV (prelucrare video / ROI), MTCNN (detecție facială), DeepFace (clasificare emoție/vârstă/gen).
+* **Web Server & UI:** Flask Framework (Backend), HTML5/CSS3 în **Dark Mode** (Frontend), afișare de statistici și grafice în format JSON.
+* **Networking & Administration:** Acces remote headless securizat prin SSH, SFTP (WinSCP), RealVNC și VPN privat prin Tailscale.
+
+---
+
+## 🚀 Optimizare & Performanțe Tehnică
+
+Pentru a asigura o funcționare fluentă pe resurse hardware limitate, procesarea AI cu biblioteca DeepFace este eșantionată asincron (o dată la 45 de cadre).
+
+* **Latență procesare:** 1.2s – 1.8s pe CPU-ul Raspberry Pi 4.
+* **Rată de streaming live:** 24 – 26 FPS în rețeaua locală.
+* **Management defensiv al erorilor:** Tratare automată a cazurilor de deconectare ale senzorului optic.
+
+---
+
+## 🗂️ Structura Proiectului
+
+```text
+proiect_web/
+├── capturi/           # Capturi de imagini generate în format .jpg
+├── static/            # Fișiere statice (style.css)
+├── template/          # Șabloane HTML (index.html, galerie.html, statistici.html)
+├── dataset_test/      # Imagini folosite pentru testare pe grupe de vârstă
+├── rezultate_dataset.json  # Rezultatele salvate în format structurat
+└── web_app.py         # Scriptul principal Python / Serverul Flask
