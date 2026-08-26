@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Licență Simona Grama</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Scanare Live</a>
+        <a href="/galerie">Vezi Galerie</a>
+        <a href="/statistici">Statistici Dataset</a>
+    </div>
+
+    <div class="container">
+        <h1>Proiect de Diplomă Licență</h1>
+        <h2>Universitatea Transilvania din Brașov</h2>
+        <h3>Absolvent: Grama Simona</h3>
+        
+        <div class="video-container">
+            <img src="{{ url_for('video_feed') }}" class="video-feed" width="100%">
+        </div>
+        
+        <div class="controls">
+            <button onclick="capteazaFoto()" class="btn-captura">Salvează Poza</button>
+        </div>
+
+        <div class="instructiuni-box">
+            <h4>Instrucțiuni de Utilizare</h4>
+            <ol>
+                <li>Poziționați-vă stabil în fața camerei web Logitech C600.</li>
+                <li>Urmăriți chenarul dinamic de pe ecran, care își schimbă culoarea în funcție de starea detectată de DeepFace (ex: Verde = Fericit, Alb = Neutru, Roșu = Furios).</li>
+                <li>Apăsați pe butonul <strong>"Salvează Poza"</strong> pentru a trimite cadrul procesat către server; acesta se va stoca în folderul securizat /capturi.</li>
+                <li>Folosiți bara de meniu de sus sau butonul dedicat pentru a naviga în secțiunea <strong>"Galerie"</strong> și a vedea istoricul imaginilor.</li>
+                <li>Pentru a evalua performanța modelului AI, accesați secțiunea "Statistici Dataset". Aceasta va rula o analiză automată pe un set de date extern 
+                (imagini pre-clasificate pe categorii de vârstă), generând statistici live privind acuratețea și eroarea medie de estimare a algoritmului DeepFace. </li>
+            </ol>
+        </div>
+
+        <div class="footer">
+            <p id="mesaj-status"></p>
+            <p id="time"></p>
+        </div>
+    </div>
+
+    <script>
+        function capteazaFoto() {
+            const status = document.getElementById('mesaj-status');
+            status.innerText = "Salvare...";
+            fetch('/salveaza_foto')
+                .then(res => res.text())
+                .then(data => {
+                    status.innerText = data;
+                    setTimeout(() => { status.innerText = ""; }, 3000);
+                });
+        }
+        setInterval(() => {
+            document.getElementById('time').innerText = new Date().toLocaleTimeString();
+        }, 1000);
+    </script>
+</body>
+</html>

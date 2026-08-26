@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Statistici Dataset</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Scanare Live</a>
+        <a href="/galerie">Vezi Galerie</a>
+        <a href="/statistici">Statistici Dataset</a>
+    </div>
+
+    <div class="container">
+        <h1>Validare Algoritm DeepFace</h1>
+        <h2>Testare acuratețe pe seturi de date de control (Dataset)</h2>
+        <h3>Modul de analiză și cercetare statistică</h3>
+
+        <div class="controls">
+            <button onclick="ruleazaTest()" class="btn-galerie" id="btn-start">Pornește Analiza Dataset</button>
+        </div>
+
+        <div id="incarcare" style="display: none; margin: 20px 0;">
+            <p id="status-text">DeepFace analizează imaginile de pe Raspberry Pi... Vă rugăm așteptați.</p>
+            <div style="width: 100%; background-color: #2c3e50; border-radius: 10px; overflow: hidden;">
+                <div id="progres-bar" style="width: 0%; height: 8px; background-color: #ff69b4; transition: width 0.5s ease;"></div>
+            </div>
+        </div>
+
+        <table id="tabel-statistici" style="display: none; width: 100%; margin-top: 25px; border-collapse: collapse; text-align: left; background-color: #2c3e50; border-radius: 8px; overflow: hidden;">
+            <thead>
+                <tr style="background-color: #ff6584; color: white;">
+                    <th style="padding: 12px;">Grup Vârsta Reală</th>
+                    <th style="padding: 12px;">Poze Testate</th>
+                    <th style="padding: 12px;">Medie Estimată AI</th>
+                    <th style="padding: 12px;">Eroare Medie Absolută</th>
+                </tr>
+            </thead>
+            <tbody id="date-tabel">
+                </tbody>
+        </table>
+
+        <div class="footer">
+            <p>Proiect de Licență - Validare Modele CNN</p>
+        </div>
+    </div>
+
+    <script>
+        function ruleazaTest() {
+            const btn = document.getElementById('btn-start');
+            const incarcare = document.getElementById('incarcare');
+            const tabel = document.getElementById('tabel-statistici');
+            const corpTabel = document.getElementById('date-tabel');
+            const bar = document.getElementById('progres-bar');
+
+            // Pregătire interfața vizuală
+            btn.disabled = true;
+            btn.innerText = "Se procesează...";
+            incarcare.style.display = "block";
+            tabel.style.display = "none";
+            corpTabel.innerHTML = "";
+            bar.style.width = "30%"; // Simulam un inceput de incarcare
+
+            // Cerem datelor de la serverul Flask
+            fetch('/ruleaza_test_dataset')
+                .then(res => res.json())
+                .then(data => {
+                    bar.style.width = "100%";
+                    setTimeout(() => {
+                        incarcare.style.display = "none";
+                        
+                        if (data.statistici.length === 0) {
+                            alert("Dataset-ul este gol! Asigurați-vă ca aveți poze în folderul 'dataset_test'.");
+                            btn.disabled = false;
+                            btn.innerText = "Pornește Analiza Dataset";
+                            return;
+                        }
+
+                        // Completam tabelul cu datele primite din Python
+                        data.statistici.forEach(rand => {
+                            const tr = document.createElement('tr');
+                            tr.style.borderBottom = "1px solid #34495e";
+                            tr.innerHTML = `
+                                <td style="padding: 12px; font-weight: bold; color: #ecf0f1;">${rand.grup}</td>
+                                <td style="padding: 12px; color: #bdc3c7;">${rand.total_poze}</td>
+                                <td style="padding: 12px; color: #2ecc71; font-weight: bold;">${rand.medie_ai} ani</td>
+                                <td style="padding: 12px; color: #ff6584; font-weight: bold;">&plusmn; ${rand.eroare} ani</td>
+                            `;
+                            corpTabel.appendChild(tr);
+                        });
+
+                        tabel.style.display = "table";
+                        btn.disabled = false;
+                        btn.innerText = "Ruleaza din nou testul";
+                    }, 500);
+                })
+                .catch(err => {
+                    alert("A apărut o eroare la procesare.");
+                    btn.disabled = false;
+                    btn.innerText = "Pornește Analiza Dataset";
+                    incarcare.style.display = "none";
+                });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+[
+    {
+        "grup": "80 ani",
+        "total_poze": 71,
+        "medie_ai": 43.4,
+        "eroare": 36.6
+    },
+    {
+        "grup": "81 ani",
+        "total_poze": 10,
+        "medie_ai": 44.2,
+        "eroare": 36.8
+    },
+    {
+        "grup": "82 ani",
+        "total_poze": 29,
+        "medie_ai": 46.1,
+        "eroare": 35.9
+    },
+    {
+        "grup": "83 ani",
+        "total_poze": 7,
+        "medie_ai": 39.1,
+        "eroare": 43.9
+    },
+    {
+        "grup": "84 ani",
+        "total_poze": 11,
+        "medie_ai": 45.1,
+        "eroare": 38.9
+    },
+    {
+        "grup": "85 ani",
+        "total_poze": 130,
+        "medie_ai": 45.2,
+        "eroare": 39.8
+    },
+    {
+        "grup": "86 ani",
+        "total_poze": 22,
+        "medie_ai": 45.5,
+        "eroare": 40.5
+    },
+    {
+        "grup": "87 ani",
+        "total_poze": 4,
+        "medie_ai": 52.0,
+        "eroare": 35.0
+    },
+    {
+        "grup": "88 ani",
+        "total_poze": 17,
+        "medie_ai": 46.0,
+        "eroare": 42.0
+    },
+    {
+        "grup": "89 ani",
+        "total_poze": 16,
+        "medie_ai": 48.6,
+        "eroare": 40.4
+    },
+    {
+        "grup": "90 ani",
+        "total_poze": 55,
+        "medie_ai": 49.6,
+        "eroare": 40.4
+    },
+    {
+        "grup": "91 ani",
+        "total_poze": 1,
+        "medie_ai": 55.0,
+        "eroare": 36.0
+    },
+    {
+        "grup": "92 ani",
+        "total_poze": 13,
+        "medie_ai": 49.2,
+        "eroare": 42.8
+    },
+    {
+        "grup": "93 ani",
+        "total_poze": 3,
+        "medie_ai": 46.0,
+        "eroare": 47.0
+    },
+    {
+        "grup": "95 ani",
+        "total_poze": 3,
+        "medie_ai": 43.7,
+        "eroare": 51.3
+    },
+    {
+        "grup": "96 ani",
+        "total_poze": 16,
+        "medie_ai": 47.6,
+        "eroare": 48.4
+    },
+    {
+        "grup": "99 ani",
+        "total_poze": 2,
+        "medie_ai": 38.0,
+        "eroare": 61.0
+    },
+    {
+        "grup": "100 ani",
+        "total_poze": 2,
+        "medie_ai": 49.0,
+        "eroare": 51.0
+    },
+    {
+        "grup": "101 ani",
+        "total_poze": 1,
+        "medie_ai": 48.0,
+        "eroare": 53.0
+    },
+    {
+        "grup": "110 ani",
+        "total_poze": 2,
+        "medie_ai": 39.0,
+        "eroare": 71.0
+    }
+]

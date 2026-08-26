@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Galerie</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Scanare Live</a>
+        <a href="/galerie">Vezi Galerie</a>
+        <a href="/statistici">Statistici Dataset</a>
+    </div>
+
+    <div style="text-align: center; padding: 20px;">
+        <h1>Arhiva Foto</h1>
+        <div id="galerie-foto" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;"></div>
+    </div>
+
+    <script>
+        function incarca() {
+            fetch('/lista_poze')
+                .then(res => res.json())
+                .then(data => {
+                    const cont = document.getElementById('galerie-foto');
+                    cont.innerHTML = "";
+                    data.imagini.forEach(nume => {
+                        const img = document.createElement('img');
+                        img.src = "/imagini/" + nume;
+                        img.style.width = "250px";
+                        img.style.borderRadius = "10px";
+                        cont.appendChild(img);
+                    });
+                });
+        }
+        window.onload = incarca;
+    </script>
+</body>
+</html>
