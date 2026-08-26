@@ -39,7 +39,9 @@ proiect_web/
 ├── rezultate_dataset.json  # Rezultatele salvate în format structurat
 └── web_app.py         # Scriptul principal Python / Serverul Flask
 
-## ⚙️ Instalare & Rulare Locală
+---
+
+## ⚙️ Instalare & Rulare Locală 
 
 1. **Clonarea repozitoriului:**
    ```bash
