@@ -38,3 +38,52 @@ proiect_web/
 ├── dataset_test/      # Imagini folosite pentru testare pe grupe de vârstă
 ├── rezultate_dataset.json  # Rezultatele salvate în format structurat
 └── web_app.py         # Scriptul principal Python / Serverul Flask
+```
+
+---
+
+## ⚙️ Instalare & Rulare Locală
+
+1. **Clonarea repozitoriului:**
+   ```bash
+
+   git clone https://github.com/simonagrama/smart-home-emotional-assistant.git
+
+   cd smart-home-emotional-assistant
+
+   ```
+
+2. **Instalarea dependențelor:**
+   ```bash
+
+   pip install -r requirements.txt
+
+   ```
+
+3. **Pornirea serverului Flask:**
+   ```bash
+
+   python web_app.py
+
+   ```
+   Aplicația va fi accesibilă în browser la adresa http://localhost:5000.
+
+---
+
+## 📽️ Demonstrație Vizuală
+
+<img width="800" height="450" alt="demo" src="https://github.com/user-attachments/assets/1d1c0f7a-52d4-4340-8a00-cbccf0594c21" />
+
+---
+
+## 👤 Autor
+
+* **Simona Grama**
+
+* Facultatea de Inginerie Electrică și Știința Calculatoarelor (IESC)
+
+* Tehnologii și Sisteme de Telecomunicații
+
+* Universitatea Transilvania din Brașov
+
+---
